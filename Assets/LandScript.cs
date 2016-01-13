@@ -3,8 +3,9 @@ using System.Collections;
 
 public class LandScript : MonoBehaviour {
 
+    public int Id { get; set; }
     public int Fertility { get; set; }
-    bool mouseOver;
+    public bool mouseOver { get; private set; }
 
     // Use this for initialization
     void Start () {
@@ -38,14 +39,14 @@ public class LandScript : MonoBehaviour {
     {
         if (!mouseOver)
             return;
-        string text = "Land 1";
+        string text = "Land " + Id;
         text += "\nFertility: " + Fertility;
         text += "\nTerrain: Plains";
 
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector2 boxSize = new Vector2(150, 200);
-        GUI.Box(new Rect(pos.x + 10, pos.y - boxSize.y - 30, boxSize.x, boxSize.y), text);
+        GUI.Box(new Rect(pos.x + 20, Screen.height - pos.y - 20, boxSize.x, boxSize.y), text);
     }
 
 }

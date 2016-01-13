@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 public class PersonScript : MonoBehaviour {
 
+    public int Id { get; set; }
     int foodOwned = 0;
     int yearlyFoodSpent = 1;
-    public GameObject currentLand { get; set; }
+    public GameObject CurrentLand { get; set; }
     List<GameObject> ownedLands;
     GameObject superior;
     List<GameObject> subordinates;
     bool mouseOver;
+    bool dragging = false;
 
     // Use this for initialization
     void Start () {
@@ -18,10 +20,14 @@ public class PersonScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        int production = currentLand.GetComponent<LandScript>().Fertility;
-        if (currentLand != null)
+        int production = CurrentLand.GetComponent<LandScript>().Fertility;
+        if (dragging)
         {
-            transform.position = currentLand.transform.position + new Vector3(0,0,-1);
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - Camera.main.transform.position) + new Vector3(0, 0, +0.1f);
+        }
+        else if (CurrentLand != null)
+        {
+            transform.position = CurrentLand.transform.position + new Vector3 (0,0, -0.1f);
         }
     }
 
@@ -32,7 +38,7 @@ public class PersonScript : MonoBehaviour {
         {
             return;
         }
-        currentLand = landObject;
+        CurrentLand = landObject;
     }
 
     void OnMouseOver()
@@ -50,17 +56,35 @@ public class PersonScript : MonoBehaviour {
         mouseOver = false;
     }
 
+    void OnMouseDrag()
+    {
+        dragging = true;
+    }
+    void OnMouseUp()
+    {
+        Debug.Log("mouseup has been called!");
+        var society = GameObject.Find("Society").GetComponent<SocietyScript>();
+        foreach (var land in society.Lands)
+        {
+            if (land.GetComponent<LandScript>().mouseOver)
+            {
+                MoveTo(land);
+            }
+        }
+        dragging = false;
+    }
+
     void OnGUI()
     {
         if (!mouseOver)
             return;
-        string text = "Person 1";
+        string text = "Person " + Id;
         text += "\nYearly Food Consumed: " + yearlyFoodSpent;
         text += "\nFood Owned: " + foodOwned;
 
-        
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector2 boxSize = new Vector2(150, 200);
-        GUI.Box(new Rect(pos.x, pos.y - boxSize.y - 20, boxSize.x, boxSize.y), text);
+        
+        GUI.Box(new Rect(pos.x + 10, Screen.height - pos.y - 10, boxSize.x, boxSize.y), text);
     }
 }

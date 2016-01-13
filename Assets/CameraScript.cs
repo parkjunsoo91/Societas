@@ -26,13 +26,13 @@ public class CameraScript : MonoBehaviour {
         {
             transform.Translate(0.1f, 0, 0);
         }
-        if (Input.mouseScrollDelta.y > 0)
-        {
-            transform.Translate(0, 0, -1f);
-        }
-        if (Input.mouseScrollDelta.y < 0 && transform.position.z < -5)
+        if (Input.mouseScrollDelta.y > 0 && transform.position.z < -5)
         {
             transform.Translate(0, 0, 1f);
+        }
+        if (Input.mouseScrollDelta.y < 0 )
+        {
+            transform.Translate(0, 0, -1f);
         }
     }
 }
