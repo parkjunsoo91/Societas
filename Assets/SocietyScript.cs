@@ -67,6 +67,10 @@ public class SocietyScript : MonoBehaviour {
         {
             NewPerson();
         }
+        if (GUI.Button(new Rect(20, 60, 80, 20), "Add Person"))
+        {
+            NewPerson();
+        }
     }
 
 }

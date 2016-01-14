@@ -83,7 +83,7 @@ public class PersonScript : MonoBehaviour {
         text += "\nFood Owned: " + foodOwned;
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector2 boxSize = new Vector2(150, 200);
+        Vector2 boxSize = new Vector2(200, 200);
         
         GUI.Box(new Rect(pos.x + 10, Screen.height - pos.y - 10, boxSize.x, boxSize.y), text);
     }
