@@ -6,21 +6,46 @@ public class LandScript : MonoBehaviour {
     public int Id { get; set; }
     public int Fertility { get; set; }
     public bool mouseOver { get; private set; }
-    public List<GameObject> Persons { get; set; }
-    List<Vector3> positions = new List<Vector3> { new Vector3(0, 0, -0.1f), new Vector3(-0.5f, -0.5f, -0.1f), new Vector3(0f, -0.5f, -0.1f), new Vector3(0.5f, -0.5f, -0.1f) };
-
-    // Use this for initialization
-    void Start () {
+    public List<GameObject> PeopleInLand { get; set; }
+    static float slotDist = 0.5f;
+    List<Vector3> slotPosition = new List<Vector3> { new Vector3(-slotDist, -slotDist, -0.1f), new Vector3(slotDist, -slotDist, -0.1f), new Vector3(-slotDist, slotDist, -0.1f), new Vector3(slotDist, slotDist, -0.1f) };
+    
+    void Start ()
+    {
         Fertility = 1;
+        foreach (var slot in slotPosition)
+        {
+            PeopleInLand.Add(null);
+        }
 	}
 	
-	// Update is called once per frame
 	void Update () {
         var renderer = GetComponent<SpriteRenderer>();
         var size = renderer.sprite.bounds.size;
         var collider = GetComponent<BoxCollider2D>();
         collider.size = size;
-	}
+
+        for (var i = 0; i < PeopleInLand.Count; i++)
+        {
+            if (PeopleInLand[i] == null)
+            {
+                var person = PeopleInLand[i].GetComponent<PersonScript>();
+                person.transform.position = transform.position + slotPosition[i];
+            }
+        }
+
+    }
+
+    public void PlacePerson(GameObject personObject)
+    {
+        for (var i=0; i< PeopleInLand.Count; i++)
+        {
+            if (PeopleInLand[i] == null)
+            {
+                PeopleInLand[i] = personObject;
+            }
+        }
+    }
 
     void OnMouseOver()
     {

@@ -79,7 +79,7 @@ public class PersonScript : MonoBehaviour {
         if (!mouseOver)
             return;
         string text = "Person " + Id;
-        text += "\nYearly Food Consumed: " + yearlyFoodSpent;
+        text += "\nYearly Food Spent: " + yearlyFoodSpent;
         text += "\nFood Owned: " + foodOwned;
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
