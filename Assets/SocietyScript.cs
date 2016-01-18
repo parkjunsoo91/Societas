@@ -5,10 +5,10 @@ using System;
 public class SocietyScript : MonoBehaviour {
 
     public List<GameObject> Lands { get; set; }
-    public List<GameObject> People { get; set; }
+    public List<GameObject> Agents { get; set; }
 
     public GameObject LandPrefab;
-    public GameObject PersonPrefab;
+    public GameObject AgentPrefab;
 
     int nextPersonId = 0;
     int nextLandId = 0;
@@ -18,7 +18,7 @@ public class SocietyScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Lands = new List<GameObject>();
-        People = new List<GameObject>();
+        Agents = new List<GameObject>();
         NewLand();
         NewPerson();
         NewLand();
@@ -43,12 +43,17 @@ public class SocietyScript : MonoBehaviour {
     }
     public GameObject NewPerson()
     {
-        var personObject = (GameObject)Instantiate(PersonPrefab, transform.position, transform.rotation);
-        var person = personObject.GetComponent<PersonScript>();
+        var personObject = (GameObject)Instantiate(AgentPrefab, transform.position, transform.rotation);
+        var person = personObject.GetComponent<AgentScript>();
         person.Id = nextPersonId++;
-        People.Add(personObject);
+        Agents.Add(personObject);
         person.MoveTo(Lands[0]);
         return personObject;
+    }
+
+    public void EndTurn()
+    {
+        return;
     }
 
     void OnGUI()
@@ -70,6 +75,10 @@ public class SocietyScript : MonoBehaviour {
         if (GUI.Button(new Rect(20, 60, 80, 20), "Add Person"))
         {
             NewPerson();
+        }
+        if (GUI.Button(new Rect(20, 60, 80, 20), "End Turn"))
+        {
+            EndTurn();
         }
     }
 

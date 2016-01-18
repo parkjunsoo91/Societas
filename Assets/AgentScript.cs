@@ -1,25 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class PersonScript : MonoBehaviour {
+public class AgentScript : MonoBehaviour {
 
     public int Id { get; set; }
-    int foodOwned = 0;
-    int yearlyFoodSpent = 1;
+    
+    Profession profession;
+    public int Wealth { get; set; }
+
     public GameObject CurrentLand { get; set; }
-    List<GameObject> ownedLands;
-    GameObject superior;
-    List<GameObject> subordinates;
+
+    public enum Profession
+    {
+        Unemployed,
+        Farmer,
+        Artisan,
+        Merchant,
+        Knight
+    }
+
     bool mouseOver;
     bool dragging = false;
 
-    // Use this for initialization
-    void Start () {
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Start()
+    {
+        profession = Profession.Unemployed;
+    }
+
+    void Update()
+    {
         int production = CurrentLand.GetComponent<LandScript>().Fertility;
         if (dragging)
         {
@@ -27,8 +37,58 @@ public class PersonScript : MonoBehaviour {
         }
         else if (CurrentLand != null)
         {
-            transform.position = CurrentLand.transform.position + new Vector3 (0,0, -0.1f);
+            transform.position = CurrentLand.transform.position + new Vector3(0, 0, -0.1f);
         }
+    }
+
+    public void ExecuteTurn()
+    {
+        //AI behavior:
+        //move phase: position changes
+        
+        //purchase/sales phase: land&slaves ownership management
+        if (Wealth > 10)
+        {
+            //look for a land for sale. if available, buy it.
+        }
+
+        if (Wealth > 9)
+        {
+            //look for a slave for sale. if available, buy it.
+        }
+
+        //status change phase: status changes
+        if (getProperty() > 20)
+        {
+            //look for a status change
+        }
+
+        //production phase : wealth changes
+        switch (profession)
+        {
+            case Profession.Unemployed:
+                break;
+            case Profession.Farmer:
+                if (CurrentLand.GetComponent<LandScript>().landType == LandScript.LandType.FarmLand)
+                {
+                    Wealth += 1;
+                }
+                break;
+            case Profession.Artisan:
+
+                break;
+            case Profession.Merchant:
+                break;
+            case Profession.Knight:
+                break;
+            default:
+                break;
+        }
+    }
+
+    int getProperty()
+    {
+        return Wealth;
     }
 
     public void MoveTo(GameObject landObject)
@@ -40,6 +100,10 @@ public class PersonScript : MonoBehaviour {
         }
         CurrentLand = landObject;
     }
+
+
+
+
 
     void OnMouseOver()
     {
@@ -79,12 +143,12 @@ public class PersonScript : MonoBehaviour {
         if (!mouseOver)
             return;
         string text = "Person " + Id;
-        text += "\nYearly Food Spent: " + yearlyFoodSpent;
-        text += "\nFood Owned: " + foodOwned;
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector2 boxSize = new Vector2(200, 200);
         
         GUI.Box(new Rect(pos.x + 10, Screen.height - pos.y - 10, boxSize.x, boxSize.y), text);
     }
+
+
 }

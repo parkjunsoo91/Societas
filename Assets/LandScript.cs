@@ -3,19 +3,33 @@ using System.Collections.Generic;
 
 public class LandScript : MonoBehaviour {
 
+    public enum LandType
+    {
+        FarmLand,
+        WoodLand,
+        Sea,
+        City
+    }
+    public LandType landType { get; set; }
+
     public int Id { get; set; }
     public int Fertility { get; set; }
     public bool mouseOver { get; private set; }
-    public List<GameObject> PeopleInLand { get; set; }
-    static float slotDist = 0.5f;
-    List<Vector3> slotPosition = new List<Vector3> { new Vector3(-slotDist, -slotDist, -0.1f), new Vector3(slotDist, -slotDist, -0.1f), new Vector3(-slotDist, slotDist, -0.1f), new Vector3(slotDist, slotDist, -0.1f) };
+    public List<GameObject> AgentsInLand { get; set; }
+    static float slotDist = 0.9f;
+    List<Vector3> slotPosition = new List<Vector3> {
+        new Vector3(-slotDist, -slotDist, -0.1f),
+        new Vector3(slotDist, -slotDist, -0.1f),
+        new Vector3(-slotDist, slotDist, -0.1f),
+        new Vector3(slotDist, slotDist, -0.1f) };
     
     void Start ()
     {
         Fertility = 1;
+        AgentsInLand = new List<GameObject>();
         foreach (var slot in slotPosition)
         {
-            PeopleInLand.Add(null);
+            AgentsInLand.Add(null);
         }
 	}
 	
@@ -25,11 +39,11 @@ public class LandScript : MonoBehaviour {
         var collider = GetComponent<BoxCollider2D>();
         collider.size = size;
 
-        for (var i = 0; i < PeopleInLand.Count; i++)
+        for (var i = 0; i < AgentsInLand.Count; i++)
         {
-            if (PeopleInLand[i] == null)
+            if (AgentsInLand[i] != null)
             {
-                var person = PeopleInLand[i].GetComponent<PersonScript>();
+                var person = AgentsInLand[i].GetComponent<AgentScript>();
                 person.transform.position = transform.position + slotPosition[i];
             }
         }
@@ -38,11 +52,11 @@ public class LandScript : MonoBehaviour {
 
     public void PlacePerson(GameObject personObject)
     {
-        for (var i=0; i< PeopleInLand.Count; i++)
+        for (var i=0; i< AgentsInLand.Count; i++)
         {
-            if (PeopleInLand[i] == null)
+            if (AgentsInLand[i] == null)
             {
-                PeopleInLand[i] = personObject;
+                AgentsInLand[i] = personObject;
             }
         }
     }
