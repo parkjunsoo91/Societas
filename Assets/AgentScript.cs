@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 public class AgentScript : MonoBehaviour {
 
+    public GameObject textPrefab;
+
     public int Id { get; set; }
-    
+
     Profession profession;
     public int Wealth { get; set; }
 
@@ -22,7 +24,6 @@ public class AgentScript : MonoBehaviour {
     bool mouseOver;
     bool dragging = false;
 
-
     void Start()
     {
         profession = Profession.Unemployed;
@@ -30,7 +31,6 @@ public class AgentScript : MonoBehaviour {
 
     void Update()
     {
-        int production = CurrentLand.GetComponent<LandScript>().Fertility;
         if (dragging)
         {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - Camera.main.transform.position) + new Vector3(0, 0, +0.1f);
@@ -102,6 +102,15 @@ public class AgentScript : MonoBehaviour {
     }
 
 
+    void OnMouseDown()
+    {
+        Debug.Log("you clicked on agent");
+        GameObject canvasObject = GameObject.Find("Canvas");
+        var textObject = Instantiate(textPrefab);
+        textObject.transform.SetParent(canvasObject.transform);
+        textObject.GetComponent<RisingMessageScript>().setTargetObject(gameObject);
+
+    }
 
 
 
@@ -120,10 +129,6 @@ public class AgentScript : MonoBehaviour {
         mouseOver = false;
     }
 
-    void OnMouseDrag()
-    {
-        dragging = true;
-    }
     void OnMouseUp()
     {
         Debug.Log("mouseup has been called!");

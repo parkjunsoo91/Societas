@@ -14,7 +14,7 @@ public class TextScript : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         var pos = Camera.main.WorldToScreenPoint(agentObject.transform.position);
-        //transform.position = pos;
+        transform.position = pos;
         
 	}
 }
