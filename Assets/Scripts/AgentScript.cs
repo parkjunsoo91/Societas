@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 public class AgentScript : MonoBehaviour {
 
-    public GameObject textPrefab;
-    public GameObject panelPrefab;
+    public GameObject RisingTextPrefab;
+    public GameObject PanelPrefab;
+    public GameObject AgentUIPrefab;
 
     public int Id { get; set; }
-
-    Profession profession;
+    public string AgentName { get; set; }
+    public Profession AgentProfession { get; set; }
     public int Wealth { get; set; }
+    public int Happiness { get; set; }
 
     public GameObject CurrentLand { get; set; }
 
@@ -23,14 +25,26 @@ public class AgentScript : MonoBehaviour {
     }
 
     GameObject canvasObject;
+    GameObject agentUIObject;
     bool mouseOver;
     bool dragging = false;
 
     void Start()
     {
         canvasObject = GameObject.Find("Canvas");
-        profession = Profession.Unemployed;
+        AgentProfession = Profession.Unemployed;
+        AgentName = "Another " + AgentProfession.ToString();
+        InitAgentUI();
     }
+    void InitAgentUI()
+    {
+        agentUIObject = Instantiate(AgentUIPrefab);
+        agentUIObject.transform.SetParent(canvasObject.transform);
+        agentUIObject.name = gameObject.name + "UI";
+        var agentUI = agentUIObject.GetComponent<AgentUIScript>();
+        agentUI.setTargetObject(gameObject);
+    }
+
 
     void Update()
     {
@@ -67,7 +81,7 @@ public class AgentScript : MonoBehaviour {
         }
 
         //production phase : wealth changes
-        switch (profession)
+        switch (AgentProfession)
         {
             case Profession.Unemployed:
                 break;
@@ -89,11 +103,11 @@ public class AgentScript : MonoBehaviour {
                 break;
         }
     }
-
     int GetProperty()
     {
         return Wealth;
     }
+
 
     public void MoveTo(GameObject landObject)
     {
@@ -107,7 +121,7 @@ public class AgentScript : MonoBehaviour {
 
     void SayMessage(string message)
     {
-        var textObject = Instantiate(textPrefab);
+        var textObject = Instantiate(RisingTextPrefab);
         textObject.transform.SetParent(canvasObject.transform);
         var risingMessage = textObject.GetComponent<RisingMessageScript>();
         risingMessage.setTargetObject(gameObject);
@@ -116,7 +130,7 @@ public class AgentScript : MonoBehaviour {
 
     void ShowPanel()
     {
-        var panelObject = Instantiate(panelPrefab);
+        var panelObject = Instantiate(PanelPrefab);
         panelObject.transform.SetParent(canvasObject.transform);
         var panel = panelObject.GetComponent<InfoPanelScript>();
         panel.setTargetObject(gameObject);
@@ -126,14 +140,14 @@ public class AgentScript : MonoBehaviour {
 
     void OnMouseDown()
     {
-        //SayMessage("hello!");
+        dragging = true;
+    }
+
+    void OnMouseUpAsButton()
+    {
         ShowPanel();
     }
 
-    void OnMouseOver()
-    {
-        //Debug.Log("Over Person");
-    }
     void OnMouseEnter()
     {
         Debug.Log("Enter Person");
@@ -147,6 +161,7 @@ public class AgentScript : MonoBehaviour {
 
     void OnMouseUp()
     {
+        dragging = false;
         Debug.Log("mouseup has been called!");
         var society = GameObject.Find("Society").GetComponent<SocietyScript>();
         foreach (var land in society.Lands)
@@ -161,15 +176,4 @@ public class AgentScript : MonoBehaviour {
 
     #endregion
 
-    void OnGUI()
-    {
-        if (!mouseOver)
-            return;
-        string text = "Person " + Id;
-
-        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector2 boxSize = new Vector2(200, 200);
-        
-        GUI.Box(new Rect(pos.x + 10, Screen.height - pos.y - 10, boxSize.x, boxSize.y), text);
-    }
 }

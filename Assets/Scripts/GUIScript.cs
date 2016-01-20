@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class UIScript : MonoBehaviour {
+public class GUIScript : MonoBehaviour {
 
     private WorldScript world;
 
