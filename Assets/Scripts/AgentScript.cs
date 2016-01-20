@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class AgentScript : MonoBehaviour {
 
     public GameObject textPrefab;
+    public GameObject panelPrefab;
 
     public int Id { get; set; }
 
@@ -21,11 +22,13 @@ public class AgentScript : MonoBehaviour {
         Knight
     }
 
+    GameObject canvasObject;
     bool mouseOver;
     bool dragging = false;
 
     void Start()
     {
+        canvasObject = GameObject.Find("Canvas");
         profession = Profession.Unemployed;
     }
 
@@ -58,7 +61,7 @@ public class AgentScript : MonoBehaviour {
         }
 
         //status change phase: status changes
-        if (getProperty() > 20)
+        if (GetProperty() > 20)
         {
             //look for a status change
         }
@@ -71,6 +74,7 @@ public class AgentScript : MonoBehaviour {
             case Profession.Farmer:
                 if (CurrentLand.GetComponent<LandScript>().landType == LandScript.LandType.FarmLand)
                 {
+                    SayMessage("Wealth +1");
                     Wealth += 1;
                 }
                 break;
@@ -86,7 +90,7 @@ public class AgentScript : MonoBehaviour {
         }
     }
 
-    int getProperty()
+    int GetProperty()
     {
         return Wealth;
     }
@@ -101,18 +105,30 @@ public class AgentScript : MonoBehaviour {
         CurrentLand = landObject;
     }
 
+    void SayMessage(string message)
+    {
+        var textObject = Instantiate(textPrefab);
+        textObject.transform.SetParent(canvasObject.transform);
+        var risingMessage = textObject.GetComponent<RisingMessageScript>();
+        risingMessage.setTargetObject(gameObject);
+        risingMessage.setMessage(message);
+    }
+
+    void ShowPanel()
+    {
+        var panelObject = Instantiate(panelPrefab);
+        panelObject.transform.SetParent(canvasObject.transform);
+        var panel = panelObject.GetComponent<InfoPanelScript>();
+        panel.setTargetObject(gameObject);
+    }
+
+#region mouse interaction
 
     void OnMouseDown()
     {
-        Debug.Log("you clicked on agent");
-        GameObject canvasObject = GameObject.Find("Canvas");
-        var textObject = Instantiate(textPrefab);
-        textObject.transform.SetParent(canvasObject.transform);
-        textObject.GetComponent<RisingMessageScript>().setTargetObject(gameObject);
-
+        //SayMessage("hello!");
+        ShowPanel();
     }
-
-
 
     void OnMouseOver()
     {
@@ -143,6 +159,8 @@ public class AgentScript : MonoBehaviour {
         dragging = false;
     }
 
+    #endregion
+
     void OnGUI()
     {
         if (!mouseOver)
@@ -154,6 +172,4 @@ public class AgentScript : MonoBehaviour {
         
         GUI.Box(new Rect(pos.x + 10, Screen.height - pos.y - 10, boxSize.x, boxSize.y), text);
     }
-
-
 }
