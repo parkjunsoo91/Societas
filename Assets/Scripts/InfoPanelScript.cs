@@ -5,7 +5,7 @@ using System.Collections;
 public class InfoPanelScript : MonoBehaviour {
 
     GameObject targetObject = null;
-    float lifeTime = 0f;
+    Vector3 offsetVector = new Vector3(0, 0, 0);
 
     void Start()
     {
@@ -13,15 +13,13 @@ public class InfoPanelScript : MonoBehaviour {
 
     void Update()
     {
-        lifeTime += Time.deltaTime;
         if (targetObject == null)
-            return;
-        if (lifeTime > 2)
         {
-            Destroy(gameObject);
+            transform.position = new Vector3(-100, -100, 0);
+            return;
         }
         var pos = Camera.main.WorldToScreenPoint(targetObject.transform.position);
-        transform.position = pos + new Vector3(10, 30, 0);
+        transform.position = pos + offsetVector;
     }
 
     public void setTargetObject(GameObject targetObject)
@@ -36,6 +34,7 @@ public class InfoPanelScript : MonoBehaviour {
         var agent = targetObject.GetComponent<AgentScript>();
         if (agent != null)
         {
+            offsetVector = new Vector3(0, 100, 0); 
             foreach (var textScript in GetComponentsInChildren<Text>())
             {
                 switch (textScript.name)
@@ -73,6 +72,7 @@ public class InfoPanelScript : MonoBehaviour {
         var land = targetObject.GetComponent<LandScript>();
         if (land != null)
         {
+            offsetVector = new Vector3(0, -200, 0);
             foreach (var textScript in GetComponentsInChildren<Text>())
             {
                 switch (textScript.name)

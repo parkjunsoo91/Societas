@@ -21,8 +21,9 @@ public class LandScript : MonoBehaviour {
 
     public List<GameObject> AgentsInLand { get; set; }
 
-    GameObject landUIObject;
+    GameObject worldObject;    
     GameObject canvasObject;
+    GameObject landUIObject;
 
     public bool mouseOver { get; private set; }
     static float slotDist = 0.9f;
@@ -35,8 +36,10 @@ public class LandScript : MonoBehaviour {
     
     void Start ()
     {
-        LandName = landType.ToString(); //temporary name.
+        worldObject = GameObject.Find("World");
         canvasObject = GameObject.Find("Canvas");
+
+        LandName = landType.ToString(); //temporary name.
         InitLandUI();
 
         Fertility = 1;
@@ -59,10 +62,8 @@ public class LandScript : MonoBehaviour {
 
     void ShowPanel()
     {
-        var panelObject = Instantiate(PanelPrefab);
-        panelObject.transform.SetParent(canvasObject.transform);
-        var panel = panelObject.GetComponent<InfoPanelScript>();
-        panel.setTargetObject(gameObject);
+        worldObject.GetComponent<WorldScript>().SetPanelTarget(gameObject);
+        
     }
 
     void Update () {
@@ -95,8 +96,10 @@ public class LandScript : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Debug.Log("land has been pressed");
-        ShowPanel();
+    }
+    void OnMouseUpAsButton()
+    {
+        
     }
 
     void OnMouseOver()
@@ -105,6 +108,7 @@ public class LandScript : MonoBehaviour {
     }
     void OnMouseEnter()
     {
+        ShowPanel();
         mouseOver = true;
         Debug.Log("Enter Land");
     }

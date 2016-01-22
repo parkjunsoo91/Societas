@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class AgentScript : MonoBehaviour {
 
     public GameObject RisingTextPrefab;
-    public GameObject PanelPrefab;
     public GameObject AgentUIPrefab;
 
     public int Id { get; set; }
@@ -24,6 +23,7 @@ public class AgentScript : MonoBehaviour {
         Knight
     }
 
+    GameObject worldObject;
     GameObject canvasObject;
     GameObject agentUIObject;
     bool mouseOver;
@@ -31,10 +31,15 @@ public class AgentScript : MonoBehaviour {
 
     void Start()
     {
+        worldObject = GameObject.Find("World");
         canvasObject = GameObject.Find("Canvas");
+
         AgentProfession = Profession.Unemployed;
         AgentName = "Another " + AgentProfession.ToString();
         InitAgentUI();
+
+        SetAgentSprite();
+
     }
     void InitAgentUI()
     {
@@ -43,6 +48,31 @@ public class AgentScript : MonoBehaviour {
         agentUIObject.name = gameObject.name + "UI";
         var agentUI = agentUIObject.GetComponent<AgentUIScript>();
         agentUI.setTargetObject(gameObject);
+    }
+    void SetAgentSprite()
+    {
+        var renderer = GetComponent<SpriteRenderer>();
+
+        switch (AgentProfession)
+        {
+            case Profession.Unemployed:
+                renderer.sprite = Resources.Load("farmer", typeof(Sprite)) as Sprite;
+                break;
+            case Profession.Farmer:
+                renderer.sprite = Resources.Load("farmer", typeof(Sprite)) as Sprite;
+                break;
+            case Profession.Artisan:
+                renderer.sprite = Resources.Load("artisan", typeof(Sprite)) as Sprite;
+                break;
+            case Profession.Merchant:
+                renderer.sprite = Resources.Load("merchant", typeof(Sprite)) as Sprite;
+                break;
+            case Profession.Knight:
+                renderer.sprite = Resources.Load("soldier", typeof(Sprite)) as Sprite;
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -130,26 +160,22 @@ public class AgentScript : MonoBehaviour {
 
     void ShowPanel()
     {
-        var panelObject = Instantiate(PanelPrefab);
-        panelObject.transform.SetParent(canvasObject.transform);
-        var panel = panelObject.GetComponent<InfoPanelScript>();
-        panel.setTargetObject(gameObject);
+        worldObject.GetComponent<WorldScript>().SetPanelTarget(gameObject);
     }
 
 #region mouse interaction
 
     void OnMouseDown()
     {
-        dragging = true;
     }
 
     void OnMouseUpAsButton()
     {
-        ShowPanel();
     }
 
     void OnMouseEnter()
     {
+        ShowPanel();
         Debug.Log("Enter Person");
         mouseOver = true;
     }
