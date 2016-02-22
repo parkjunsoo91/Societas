@@ -21,7 +21,7 @@ public class RisingMessageScript : MonoBehaviour {
         }
         lifeTime += Time.deltaTime;
         var pos = Camera.main.WorldToScreenPoint(targetObject.transform.position);
-        transform.position = pos + new Vector3(0, 20 + lifeTime * 10, 0);
+        transform.position = pos + new Vector3(0, 100 + lifeTime * 20, 0);
     }
 
     public void setTargetObject(GameObject targetObject)

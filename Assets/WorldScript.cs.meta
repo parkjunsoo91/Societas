@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 4b336954d731daa4a8dec020a8bd2702
-timeCreated: 1453121245
+timeCreated: 1455681829
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - selectedObject: {instanceID: 0}
+  - LandPrefab: {instanceID: 0}
+  - PanelPrefab: {instanceID: 0}
+  - NatureTurnNoticePrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
