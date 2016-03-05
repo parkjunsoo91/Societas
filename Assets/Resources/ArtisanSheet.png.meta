@@ -1,0 +1,240 @@
+fileFormatVersion: 2
+guid: 225227486df0e0648bc79029d74655e6
+timeCreated: 1457200967
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ArtisanSheet_0
+    21300002: ArtisanSheet_1
+    21300004: ArtisanSheet_2
+    21300006: ArtisanSheet_3
+    21300008: ArtisanSheet_4
+    21300010: ArtisanSheet_5
+    21300012: ArtisanSheet_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ArtisanSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 53}
+        - {x: -34, y: 53}
+        - {x: -53, y: 22}
+        - {x: -53, y: -62}
+        - {x: -19, y: -80}
+        - {x: -10, y: -77}
+        - {x: -7, y: -69}
+        - {x: -9, y: -78}
+        - {x: -4, y: -91}
+        - {x: -2, y: -92}
+        - {x: 34, y: -92}
+        - {x: 47, y: -67}
+        - {x: 47, y: 5}
+        - {x: 28, y: 27}
+    - name: ArtisanSheet_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 100}
+        - {x: -39, y: 100}
+        - {x: -53, y: 88}
+        - {x: -53, y: -62}
+        - {x: -18, y: -77}
+        - {x: -10, y: -77}
+        - {x: -7, y: -69}
+        - {x: -9, y: -78}
+        - {x: -4, y: -91}
+        - {x: -2, y: -92}
+        - {x: 36, y: -92}
+        - {x: 47, y: -72}
+        - {x: 47, y: 9}
+        - {x: 41, y: 17}
+    - name: ArtisanSheet_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -63, y: 99}
+        - {x: -66, y: 97}
+        - {x: -66, y: 29}
+        - {x: -55, y: -64}
+        - {x: -18, y: -77}
+        - {x: -10, y: -77}
+        - {x: -7, y: -69}
+        - {x: -9, y: -78}
+        - {x: -4, y: -91}
+        - {x: -2, y: -92}
+        - {x: 32, y: -92}
+        - {x: 47, y: -55}
+        - {x: 47, y: 37}
+        - {x: -32, y: 99}
+    - name: ArtisanSheet_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 100}
+        - {x: -62, y: 85}
+        - {x: -62, y: 59}
+        - {x: -50, y: 37}
+        - {x: -56, y: 2}
+        - {x: -57, y: -60}
+        - {x: -19, y: -78}
+        - {x: -10, y: -77}
+        - {x: -7, y: -69}
+        - {x: -9, y: -78}
+        - {x: -4, y: -91}
+        - {x: -2, y: -92}
+        - {x: 32, y: -92}
+        - {x: 47, y: -56}
+        - {x: 47, y: 40}
+        - {x: -20, y: 100}
+    - name: ArtisanSheet_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 53}
+        - {x: -34, y: 53}
+        - {x: -53, y: 18}
+        - {x: -53, y: -61}
+        - {x: -52, y: -62}
+        - {x: -18, y: -77}
+        - {x: -10, y: -77}
+        - {x: -7, y: -69}
+        - {x: -9, y: -78}
+        - {x: -4, y: -91}
+        - {x: 10, y: -92}
+        - {x: 20, y: -92}
+        - {x: 43, y: -81}
+        - {x: 47, y: -42}
+        - {x: 47, y: 10}
+    - name: ArtisanSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 54}
+        - {x: -53, y: 25}
+        - {x: -53, y: -63}
+        - {x: -18, y: -77}
+        - {x: -10, y: -77}
+        - {x: -7, y: -69}
+        - {x: -9, y: -78}
+        - {x: -4, y: -91}
+        - {x: -2, y: -92}
+        - {x: 38, y: -92}
+        - {x: 47, y: -79}
+        - {x: 47, y: 19}
+        - {x: 17, y: 54}
+    - name: ArtisanSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 54}
+        - {x: -53, y: 30}
+        - {x: -53, y: -75}
+        - {x: -18, y: -77}
+        - {x: -10, y: -77}
+        - {x: -7, y: -69}
+        - {x: -9, y: -78}
+        - {x: -4, y: -91}
+        - {x: -2, y: -92}
+        - {x: 34, y: -92}
+        - {x: 47, y: -67}
+        - {x: 47, y: 4}
+        - {x: 5, y: 54}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
