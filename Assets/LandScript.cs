@@ -21,7 +21,7 @@ public class LandScript : MonoBehaviour {
     int cropsPlanted;
     public int CropsPlanted
     {
-        get { return CropsPlanted; }
+        get { return cropsPlanted; }
         set
         {
             //Todo: modify crop spites on the land
