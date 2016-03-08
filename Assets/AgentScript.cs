@@ -58,6 +58,7 @@ public class AgentScript : MonoBehaviour {
     GameObject canvasObject;
     GameObject agentUIObject;
     GameObject highlightObject;
+    Animator animator;
 
     bool mouseOver;
     public bool selected = false;
@@ -76,6 +77,8 @@ public class AgentScript : MonoBehaviour {
         //AgentProfession = Profession.Unemployed;
         AgentName = "Another " + AgentProfession.ToString();
         InitAgentUI();
+
+        animator = GetComponent<Animator>();
 
         SetAgentSprite();
 
@@ -96,17 +99,22 @@ public class AgentScript : MonoBehaviour {
         {
             case Profession.Unemployed:
                 renderer.sprite = Resources.Load("farmer", typeof(Sprite)) as Sprite;
+                animator.SetTrigger("Farmer");
                 break;
             case Profession.Farmer:
                 renderer.sprite = Resources.Load("farmer", typeof(Sprite)) as Sprite;
+                animator.SetTrigger("Farmer");
                 break;
             case Profession.Artisan:
                 renderer.sprite = Resources.Load("artisan", typeof(Sprite)) as Sprite;
+                animator.SetTrigger("Artisan");
                 break;
             case Profession.Merchant:
+                animator.SetTrigger("Merchant");
                 renderer.sprite = Resources.Load("merchant", typeof(Sprite)) as Sprite;
                 break;
             case Profession.Knight:
+                animator.SetTrigger("Farmer");
                 renderer.sprite = Resources.Load("soldier", typeof(Sprite)) as Sprite;
                 break;
             default:

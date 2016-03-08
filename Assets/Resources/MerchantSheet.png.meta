@@ -1,0 +1,258 @@
+fileFormatVersion: 2
+guid: d9c183f8851182042bcad11578e9d50b
+timeCreated: 1457201273
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MerchantSheet_0
+    21300002: MerchantSheet_1
+    21300004: MerchantSheet_2
+    21300006: MerchantSheet_3
+    21300008: MerchantSheet_4
+    21300010: MerchantSheet_5
+    21300012: MerchantSheet_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MerchantSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: 8}
+        - {x: 53, y: 12}
+        - {x: -1, y: 59}
+        - {x: -15, y: 52}
+        - {x: -16, y: 72}
+        - {x: -20, y: 75}
+        - {x: -63, y: 75}
+        - {x: -65, y: 44}
+        - {x: -65, y: -86}
+        - {x: -48, y: -87}
+        - {x: -33, y: -77}
+        - {x: -31, y: -74}
+        - {x: -22, y: -100}
+        - {x: -3, y: -100}
+        - {x: 10, y: -90}
+        - {x: 10, y: -78}
+        - {x: 54, y: -65}
+    - name: MerchantSheet_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 53, y: -56}
+        - {x: 54, y: -50}
+        - {x: 54, y: -3}
+        - {x: -1, y: 67}
+        - {x: -13, y: 58}
+        - {x: -11, y: 54}
+        - {x: -20, y: 45}
+        - {x: -12, y: 66}
+        - {x: -17, y: 75}
+        - {x: -65, y: 75}
+        - {x: -65, y: -88}
+        - {x: -48, y: -87}
+        - {x: -33, y: -77}
+        - {x: -31, y: -74}
+        - {x: -22, y: -100}
+        - {x: -3, y: -100}
+        - {x: 10, y: -90}
+        - {x: 10, y: -78}
+        - {x: 44, y: -64}
+    - name: MerchantSheet_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: 12}
+        - {x: -3, y: 73}
+        - {x: -7, y: 72}
+        - {x: -13, y: 67}
+        - {x: -12, y: 70}
+        - {x: -16, y: 75}
+        - {x: -42, y: 75}
+        - {x: -60, y: 71}
+        - {x: -65, y: 16}
+        - {x: -65, y: -80}
+        - {x: -48, y: -87}
+        - {x: -33, y: -77}
+        - {x: -31, y: -74}
+        - {x: -22, y: -100}
+        - {x: -3, y: -100}
+        - {x: 10, y: -90}
+        - {x: 10, y: -78}
+        - {x: 54, y: -65}
+    - name: MerchantSheet_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 79}
+        - {x: -58, y: 79}
+        - {x: -65, y: 30}
+        - {x: -65, y: -80}
+        - {x: -48, y: -87}
+        - {x: -33, y: -77}
+        - {x: -31, y: -74}
+        - {x: -22, y: -100}
+        - {x: 42, y: -100}
+        - {x: 54, y: -75}
+        - {x: 54, y: 55}
+    - name: MerchantSheet_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 53, y: -56}
+        - {x: 54, y: -55}
+        - {x: 54, y: 22}
+        - {x: 15, y: 81}
+        - {x: -47, y: 81}
+        - {x: -56, y: 70}
+        - {x: -65, y: 3}
+        - {x: -65, y: -80}
+        - {x: -48, y: -87}
+        - {x: -33, y: -77}
+        - {x: -31, y: -74}
+        - {x: -22, y: -100}
+        - {x: -3, y: -100}
+        - {x: 10, y: -90}
+        - {x: 10, y: -78}
+        - {x: 44, y: -64}
+    - name: MerchantSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 75}
+        - {x: -35, y: 75}
+        - {x: -44, y: 73}
+        - {x: -55, y: 70}
+        - {x: -53, y: 33}
+        - {x: -65, y: -12}
+        - {x: -65, y: -80}
+        - {x: -48, y: -87}
+        - {x: -33, y: -77}
+        - {x: -31, y: -74}
+        - {x: -22, y: -100}
+        - {x: 24, y: -100}
+        - {x: 54, y: -62}
+        - {x: 54, y: 46}
+        - {x: 39, y: 61}
+    - name: MerchantSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: 8}
+        - {x: 53, y: 12}
+        - {x: 1, y: 58}
+        - {x: -11, y: 52}
+        - {x: -10, y: 48}
+        - {x: -17, y: 40}
+        - {x: -9, y: 73}
+        - {x: -18, y: 75}
+        - {x: -41, y: 75}
+        - {x: -53, y: 71}
+        - {x: -54, y: 65}
+        - {x: -65, y: 3}
+        - {x: -65, y: -80}
+        - {x: -48, y: -87}
+        - {x: -33, y: -77}
+        - {x: -31, y: -74}
+        - {x: -22, y: -100}
+        - {x: -3, y: -100}
+        - {x: 10, y: -90}
+        - {x: 10, y: -78}
+        - {x: 54, y: -65}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
