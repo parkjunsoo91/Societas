@@ -55,15 +55,15 @@ public class WorldScript : MonoBehaviour
     }
     void GenerateTerrain()
     {
-        CreateLand(LandScript.LandType.City);
-        CreateLand(LandScript.LandType.City);
-        CreateLand(LandScript.LandType.City);
-        CreateLand(LandScript.LandType.FarmLand);
-        CreateLand(LandScript.LandType.FarmLand);
-        CreateLand(LandScript.LandType.FarmLand);
-        CreateLand(LandScript.LandType.FarmLand);
+        CreateLand(LandScript.LandType.City, null, 0);
+        CreateLand(LandScript.LandType.City, null,-1);
+        CreateLand(LandScript.LandType.City, null, -1);
+        CreateLand(LandScript.LandType.FarmLand, null, -1).GetComponent<LandScript>().CropsPlanted = 1;
+        CreateLand(LandScript.LandType.FarmLand, null, -1).GetComponent<LandScript>().CropsPlanted = 1;
+        CreateLand(LandScript.LandType.FarmLand, null, -1).GetComponent<LandScript>().CropsPlanted = 1;
+        CreateLand(LandScript.LandType.FarmLand, null, -1).GetComponent<LandScript>().CropsPlanted = 1;
     }
-    public GameObject CreateLand(LandScript.LandType type)
+    public GameObject CreateLand(LandScript.LandType type, GameObject landOnLeft, int index)
     {
         var landObject = Instantiate(LandPrefab);
         landObject.name = "Land " + landCounter;
@@ -81,9 +81,8 @@ public class WorldScript : MonoBehaviour
         CreateAgent(AgentScript.Profession.Knight, 2, LandObjects[0], true);
         CreateAgent(AgentScript.Profession.Artisan, 2, LandObjects[1], true);
         CreateAgent(AgentScript.Profession.Merchant, 2, LandObjects[2], true);
-        CreateAgent(AgentScript.Profession.Farmer, 2, LandObjects[3], true);
-        CreateAgent(AgentScript.Profession.Farmer, 2, LandObjects[3], true);
-        CreateAgent(AgentScript.Profession.Farmer, 2, LandObjects[4], true);
+        CreateAgent(AgentScript.Profession.Farmer, 1, LandObjects[3], true);
+        CreateAgent(AgentScript.Profession.Farmer, 3, LandObjects[4], true);
         CreateAgent(AgentScript.Profession.Farmer, 2, LandObjects[5], true);
         CreateAgent(AgentScript.Profession.Farmer, 2, LandObjects[6], true);
     }
@@ -124,6 +123,7 @@ public class WorldScript : MonoBehaviour
         population = AgentObjects.Count;
         resourceTextObject.GetComponent<Text>().text = "Population: " + population + "\nFood Production: " + food;
     }
+
 
     void Update()
     {
@@ -242,7 +242,7 @@ public class WorldScript : MonoBehaviour
         }
         if (GUI.Button(new Rect(0, 80, 100, 20), "Discover new land"))
         {
-            CreateLand(LandScript.LandType.FarmLand);
+            CreateLand(LandScript.LandType.FarmLand, null, -1);
         }
     }
 

@@ -18,10 +18,10 @@ public class LandScript : MonoBehaviour {
     public string LandName { get; set; }
     public LandType landType { get; private set; }
     public int Fertility { get; set; }
-    int cropsPlanted;
+    int cropsPlanted = 0;
     public int CropsPlanted
     {
-        get { return CropsPlanted; }
+        get { return cropsPlanted; }
         set
         {
             //Todo: modify crop spites on the land

@@ -140,6 +140,7 @@ public class AgentScript : MonoBehaviour {
         switch (AgentProfession)
         {
             case Profession.Unemployed:
+                
                 if (currentLand.LandOwner == gameObject)
                 {
                     //do something with his land
@@ -157,7 +158,9 @@ public class AgentScript : MonoBehaviour {
                         }
                     }
                 }
+                
                 break;
+                
             case Profession.Farmer:
                 if (currentLand.landType == LandScript.LandType.FarmLand)
                 {
@@ -165,7 +168,7 @@ public class AgentScript : MonoBehaviour {
                     int crops = currentLand.CropsPlanted;
                     if (crops > 0)
                     {
-                        int rng = Mathf.Abs(Random.Range(-2, 1));
+                        int rng = Random.Range(-2, 1);
                         int yield = crops * 3 + rng;
                         Wealth += yield;
                         SayMessage("Harvest +" + yield);
