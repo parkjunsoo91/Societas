@@ -259,6 +259,11 @@ public class AgentScript : MonoBehaviour {
         worldObject.GetComponent<WorldScript>().SetPanelTarget(gameObject);
     }
 
+    void HidePanel()
+    {
+        worldObject.GetComponent<WorldScript>().SetPanelTarget(null);
+    }
+
     void ShowHighlight()
     {
 
@@ -291,6 +296,7 @@ public class AgentScript : MonoBehaviour {
     }
     void OnMouseExit()
     {
+        HidePanel();
         //Debug.Log("Exit Person");
         mouseOver = false;
     }

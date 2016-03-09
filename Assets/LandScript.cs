@@ -82,6 +82,11 @@ public class LandScript : MonoBehaviour {
         worldObject.GetComponent<WorldScript>().SetPanelTarget(gameObject);
     }
 
+    void HidePanel()
+    {
+        worldObject.GetComponent<WorldScript>().SetPanelTarget(null);
+    }
+
     void Update () {
         var renderer = GetComponent<SpriteRenderer>();
         var size = renderer.sprite.bounds.size;
@@ -166,6 +171,7 @@ public class LandScript : MonoBehaviour {
     }
     void OnMouseExit()
     {
+        HidePanel();
         mouseOver = false;
         //Debug.Log("Exit Land");
     }
