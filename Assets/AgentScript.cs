@@ -99,22 +99,22 @@ public class AgentScript : MonoBehaviour {
         {
             case Profession.Unemployed:
                 renderer.sprite = Resources.Load("farmer", typeof(Sprite)) as Sprite;
-                animator.SetTrigger("Farmer");
+                animator.SetTrigger("FarmerIdle");
                 break;
             case Profession.Farmer:
                 renderer.sprite = Resources.Load("farmer", typeof(Sprite)) as Sprite;
-                animator.SetTrigger("Farmer");
+                animator.SetTrigger("FarmerIdle");
                 break;
             case Profession.Artisan:
                 renderer.sprite = Resources.Load("artisan", typeof(Sprite)) as Sprite;
-                animator.SetTrigger("Artisan");
+                animator.SetTrigger("ArtisanIdle");
                 break;
             case Profession.Merchant:
-                animator.SetTrigger("Merchant");
+                animator.SetTrigger("MerchantIdle");
                 renderer.sprite = Resources.Load("merchant", typeof(Sprite)) as Sprite;
                 break;
             case Profession.Knight:
-                animator.SetTrigger("Farmer");
+                animator.SetTrigger("KnightIdle");
                 renderer.sprite = Resources.Load("soldier", typeof(Sprite)) as Sprite;
                 break;
             default:
@@ -172,6 +172,8 @@ public class AgentScript : MonoBehaviour {
             case Profession.Farmer:
                 if (currentLand.landType == LandScript.LandType.FarmLand)
                 {
+                    animator.SetTrigger("FarmerWorking");
+
                     //harvest action
                     int crops = currentLand.CropsPlanted;
                     if (crops > 0)
@@ -193,9 +195,11 @@ public class AgentScript : MonoBehaviour {
                         SayMessage("Farming Investment -" + crops);
                         yield return new WaitForSeconds(1);
                     }
+                    animator.SetTrigger("FarmerIdle");
                 }
                 break;
             case Profession.Artisan:
+                animator.SetTrigger("ArtisanWorking");
                 if (true) //TODO: check previous investment
                 {
                     int yield = Random.Range(1, 3);
@@ -209,8 +213,10 @@ public class AgentScript : MonoBehaviour {
                     SayMessage("Crafting Investment -1");
                     yield return new WaitForSeconds(1);
                 }
+                animator.SetTrigger("ArtisanIdle");
                 break;
             case Profession.Merchant:
+                animator.SetTrigger("MerchantWorking");
                 if (true) //TODO: check previous investment
                 {
                     int yield = Random.Range(1, 3);
@@ -224,9 +230,11 @@ public class AgentScript : MonoBehaviour {
                     SayMessage("Trade Investment -1");
                     yield return new WaitForSeconds(1);
                 }
+                animator.SetTrigger("MerchantIdle");
                 break;
             case Profession.Knight:
-                
+                animator.SetTrigger("KnightWorking");
+                animator.SetTrigger("KnightIdle");
                 break;
             default:
                 break;
